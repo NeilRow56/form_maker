@@ -1,6 +1,7 @@
 'use server'
 
 import { db } from '@/lib/db'
+import { formSchemaType } from '@/schemas/form'
 import { currentUser } from '@clerk/nextjs'
 
 class UserNotFoundError extends Error {}
@@ -39,4 +40,8 @@ export async function GetFormStats() {
     submissionRate,
     bounceRate,
   }
+}
+
+export async function CreateForm(data: formSchemaType) {
+  console.log('NAME ON SERVER', data.name)
 }

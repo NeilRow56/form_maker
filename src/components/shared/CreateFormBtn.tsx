@@ -29,6 +29,7 @@ import { Input } from '../ui/input'
 import { Textarea } from '../ui/textarea'
 import { toast } from '../ui/use-toast'
 import { useRouter } from 'next/navigation'
+import { CreateForm } from '@/actions/form'
 
 type Props = {}
 
@@ -40,6 +41,7 @@ const CreateFormBtn = (props: Props) => {
 
   const onSubmit = async (values: formSchemaType) => {
     try {
+      await CreateForm(values)
       toast({
         title: 'Success',
         description: 'Form created successfully',
