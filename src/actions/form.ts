@@ -69,3 +69,19 @@ export async function CreateForm(data: formSchemaType) {
 
   return form.id
 }
+
+export async function GetForms() {
+  const user = await currentUser()
+  if (!user) {
+    throw new UserNotFoundError()
+  }
+
+  return await db.form.findMany({
+    where: {
+      userId: user.id,
+    },
+    orderBy: {
+      createdAt: 'desc',
+    },
+  })
+}
