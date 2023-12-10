@@ -85,3 +85,17 @@ export async function GetForms() {
     },
   })
 }
+
+export async function GetFormById(id: string) {
+  const user = await currentUser()
+  if (!user) {
+    throw new UserNotFoundError()
+  }
+
+  return await db.form.findUnique({
+    where: {
+      userId: user.id,
+      id,
+    },
+  })
+}
