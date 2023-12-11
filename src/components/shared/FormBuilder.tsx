@@ -4,6 +4,7 @@ import { Form } from '@prisma/client'
 import PreviewDialogBtn from './PreviewDialogBtn'
 import SaveFormBtn from './SaveFormBtn'
 import PublishFormBtn from './PublishFormBtn'
+import Designer from './Designer'
 
 const FormBuilder = ({ form }: { form: Form }) => {
   return (
@@ -23,8 +24,8 @@ const FormBuilder = ({ form }: { form: Form }) => {
           )}
         </div>
       </nav>
-      <div className="relative flex h-[200px] w-full flex-grow items-center justify-center overflow-y-auto bg-accent bg-[url(/paper.svg)] dark:bg-[url(/paper-dark.svg)]">
-        Designer
+      <div className="relative flex h-[200px] w-full flex-grow items-center justify-center overflow-y-auto bg-accent bg-[url(/graph-paper.svg)] dark:bg-[url(/graph-paper-dark.svg)]">
+        <Designer />
       </div>
     </main>
   )
